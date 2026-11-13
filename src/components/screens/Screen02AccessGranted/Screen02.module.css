@@ -1,0 +1,693 @@
+/* ==========================================================================
+   Screen 02: Access Granted — Styles
+   ========================================================================== */
+
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+.screenContainer {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 5vw, 2rem);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.ambientLeft {
+  position: fixed;
+  top: 10%;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientRight {
+  position: fixed;
+  bottom: 15%;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.09) 0%, transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 3vh, 1.75rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Access Header ──────────────────────────────────────────────────────── */
+.accessHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+/* Lock + opening animation wrapper */
+.lockIconWrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lockRing {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(168, 85, 247, 0.7),
+    rgba(236, 72, 153, 0.7),
+    rgba(245, 208, 197, 0.5),
+    rgba(168, 85, 247, 0.7)
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff 0);
+  animation: rotateConic 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateConic {
+  to { transform: rotate(360deg); }
+}
+
+.lockIconBg {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.18) 0%, rgba(236, 72, 153, 0.12) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.lockIcon {
+  color: var(--accent-purple-light);
+}
+
+.unlockIcon {
+  color: var(--accent-emerald);
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.6));
+}
+
+/* Connection badge */
+.connectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-emerald);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.connectionPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+/* Heading block */
+.accessHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accessTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #fff7f1 10%,
+    #d9b8cf 52%,
+    var(--accent-rose-gold) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accessSubtitle {
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.accessDesc {
+  font-size: clamp(0.88rem, 2.8vw, 1rem);
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.65;
+}
+
+/* ─── Quote Card ──────────────────────────────────────────────────────────── */
+.quoteCard {
+  width: 100%;
+  position: relative;
+  padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(135deg, rgba(34, 24, 37, 0.72), rgba(14, 14, 20, 0.78));
+  border: 1px solid var(--border-accent);
+  border-radius: 4px 18px 18px 4px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Decorative corner glow */
+.quoteCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 85, 247, 0.5),
+    rgba(236, 72, 153, 0.5),
+    transparent
+  );
+}
+
+.quoteText {
+  font-size: clamp(0.95rem, 3vw, 1.08rem);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.quoteFooter {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Envelope ───────────────────────────────────────────────────────────── */
+.envelopeSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+  transition: margin-top 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelopeSectionOpen {
+  margin-top: clamp(3.75rem, 9vw, 5rem);
+}
+
+/* Teaser block before envelope is opened */
+.envelopeTeaser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
+.teaserBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.22rem 0.75rem;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-rose-gold);
+  background: rgba(245, 208, 197, 0.08);
+  border: 1px solid rgba(245, 208, 197, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.teaserPulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+  box-shadow: 0 0 6px var(--accent-pink);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+.teaserText {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #fff2f4 45%,
+    var(--accent-rose-gold) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.envelopeWrapper {
+  position: relative;
+  width: clamp(220px, 60vw, 300px);
+  height: clamp(150px, 42vw, 200px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.envelopeWrapper:focus-visible {
+  outline: 2px solid var(--accent-rose-gold);
+  outline-offset: 6px;
+  border-radius: var(--radius-md);
+}
+
+.envelopeWrapper:disabled { cursor: default; }
+
+/* The body of the envelope */
+.envelopeBody {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #2b202e 0%, #1a1620 48%, #31212b 100%);
+  border: 1px solid rgba(217, 191, 164, 0.3);
+  border-radius: 8px 8px 12px 12px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(142, 106, 152, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.envelopeWrapper:hover .envelopeBody {
+  border-color: rgba(236, 72, 153, 0.5);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(236, 72, 153, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* The envelope flap (triangle fold at top) */
+.envelopeFlap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  transform-origin: top center;
+  z-index: 4;
+}
+
+.envelopeFlapSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Bottom V crease lines for realism */
+.envelopeCreaseLeft,
+.envelopeCreaseRight {
+  position: absolute;
+  bottom: 0;
+  height: 55%;
+  width: 51%;
+  z-index: 1;
+  background: linear-gradient(
+    to top right,
+    transparent 49.5%,
+    rgba(168, 85, 247, 0.12) 49.5%,
+    rgba(168, 85, 247, 0.12) 50.5%,
+    transparent 50.5%
+  );
+}
+
+.envelopeCreaseLeft {
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.envelopeCreaseRight {
+  right: 0;
+  transform-origin: bottom right;
+  background: linear-gradient(
+    to top left,
+    transparent 49.5%,
+    rgba(168, 85, 247, 0.12) 49.5%,
+    rgba(168, 85, 247, 0.12) 50.5%,
+    transparent 50.5%
+  );
+}
+
+/* Wax seal decoration */
+.envelopeSeal {
+  position: absolute;
+  bottom: clamp(10px, 4vw, 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d6a8aa, #986475 72%);
+  border: 1.5px solid rgba(231, 207, 170, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, .34), inset 0 1px 2px rgba(255,255,255,.25);
+  z-index: 3;
+  font-size: 14px;
+  transition: transform var(--transition-fast);
+  user-select: none;
+}
+
+.envelopeWrapper:hover .envelopeSeal {
+  transform: translateX(-50%) scale(1.08);
+}
+
+/* Envelope edge line under flap */
+.envelopeLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 85, 247, 0.4),
+    rgba(236, 72, 153, 0.4),
+    transparent
+  );
+  z-index: 2;
+}
+
+/* Floating card inside envelope — sleek glassmorphic mini card */
+.envelopeCard {
+  position: absolute;
+  top: 14%;
+  left: 8%;
+  right: 8%;
+  height: 48%;
+  background: linear-gradient(
+    145deg,
+    rgba(38, 22, 48, 0.94) 0%,
+    rgba(22, 14, 32, 0.96) 100%
+  );
+  border: 1px solid rgba(245, 208, 197, 0.35);
+  border-radius: 8px;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.65),
+    0 0 16px rgba(236, 72, 153, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.65rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.envelopeCardMiniTag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-rose-gold);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.envelopeCardMiniText {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 2.7vw, 0.98rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Open CTA Button ────────────────────────────────────────────────────── */
+.openButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.75rem;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.15) 0%,
+    rgba(236, 72, 153, 0.15) 100%
+  );
+  border: 1px solid rgba(236, 72, 153, 0.45);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  min-height: 48px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.openButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(236, 72, 153, 0.7);
+  box-shadow: var(--glow-button), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.22) 0%,
+    rgba(236, 72, 153, 0.22) 100%
+  );
+}
+
+.openButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.openButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.openButtonShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.07),
+    transparent
+  );
+  transform: skewX(-20deg) translateX(-100%);
+  animation: shimmerSlide 3.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes shimmerSlide {
+  0% { transform: skewX(-20deg) translateX(-120%); }
+  40%, 100% { transform: skewX(-20deg) translateX(220%); }
+}
+
+/* ─── Revealed Message ────────────────────────────────────────────────────── */
+.revealedMessage {
+  width: 100%;
+  padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(
+    145deg,
+    rgba(168, 85, 247, 0.1) 0%,
+    rgba(236, 72, 153, 0.08) 50%,
+    rgba(245, 208, 197, 0.06) 100%
+  );
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glow-pink), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.revealedMessage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(236, 72, 153, 0.6),
+    rgba(245, 208, 197, 0.5),
+    transparent
+  );
+}
+
+.revealedEmoji {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.revealedHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #ffe4e6 45%,
+    var(--accent-rose-gold) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.revealedText {
+  font-size: clamp(0.92rem, 3vw, 1.05rem);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Continue Button ────────────────────────────────────────────────────── */
+.continueButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.95rem 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(168, 85, 247, 0.25) 0%,
+    rgba(168, 85, 247, 0.15) 100%
+  );
+  border: 1px solid rgba(168, 85, 247, 0.55);
+  border-radius: var(--radius-md);
+  color: var(--accent-purple-light);
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(168, 85, 247, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  min-height: 48px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.continueButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(168, 85, 247, 0.8);
+  color: #fff;
+  box-shadow: var(--glow-purple), 0 8px 28px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.continueButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.continueButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .lockRing {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  .accessTitle {
+    letter-spacing: -0.03em;
+  }
+
+  .envelopeWrapper {
+    width: clamp(200px, 75vw, 270px);
+    height: clamp(140px, 52vw, 182px);
+  }
+
+  .openButton,
+  .continueButton {
+    max-width: 100%;
+  }
+}
+

@@ -1,0 +1,118 @@
+@import './styles/variables.css';
+
+/* Universal Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+/* Subtle cinematic background grid & gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(ellipse 76% 48% at 50% -18%, rgba(114, 76, 124, 0.15), transparent 72%),
+    radial-gradient(ellipse 48% 34% at 92% 84%, rgba(131, 69, 91, 0.075), transparent 74%),
+    radial-gradient(ellipse 40% 26% at 4% 64%, rgba(194, 156, 130, 0.035), transparent 76%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A barely visible drafting grid keeps the developer identity without noise. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-size: 72px 72px;
+  background-image: 
+    linear-gradient(to right, rgba(228, 208, 222, 0.007) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(228, 208, 222, 0.007) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p {
+  line-height: 1.6;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent-rose-gold);
+  outline-offset: 3px;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar for Terminal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.3);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
