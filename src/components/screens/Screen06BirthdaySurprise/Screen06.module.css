@@ -78,7 +78,9 @@
 .secretMessage p:nth-child(2) { color: #f6d9e6; }
 .secretSignature { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.6rem; color: #efb9d0; font: italic 1rem Georgia, serif; }
 .secretPersonal { display: flex; flex-direction: column; align-items: center; gap: .35rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(236, 72, 153, .15); text-align: center; }
-.secretPersonalMain { font: italic clamp(1.15rem, 3.8vw, 1.45rem) Georgia, serif; background: linear-gradient(135deg, #fff 0%, #f7e8e8 40%, #e8c0bf 70%, #e7cfa8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.secretPersonalMain { font: italic clamp(1.15rem, 3.8vw, 1.45rem) Georgia, serif; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; }
+.secretPersonalText { background: linear-gradient(135deg, #fff 0%, #f7e8e8 40%, #e8c0bf 70%, #e7cfa8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.redHeart { font-style: normal; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; display: inline-block; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.65)); }
 .secretPersonalSign { font: 500 clamp(.88rem, 2.8vw, 1rem) var(--font-sans, system-ui, sans-serif); color: #c4afc9; opacity: .88; }
 .returnButton { display: flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; margin: 1.6rem auto 0; padding: .65rem 1rem; border: 1px solid rgba(236, 72, 153, .3); border-radius: 10px; background: rgba(236, 72, 153, .09); color: #f4d5e2; font: 500 .82rem var(--font-sans); cursor: pointer; }
 .secretButton:focus-visible, .vaultButton:focus-visible, .replayButton:focus-visible, .closeButton:focus-visible, .returnButton:focus-visible { outline: 2px solid #f3a8c8; outline-offset: 3px; }

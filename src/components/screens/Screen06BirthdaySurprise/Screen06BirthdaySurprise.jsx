@@ -145,10 +145,13 @@ export function Screen06BirthdaySurprise({ isReducedMotion, onReplay, onExploreV
               <span className={styles.secretLabel}>A SECRET, JUST FOR YOU</span>
               <h2 id="secret-title">One last line...</h2>
               <div className={styles.secretMessage}>{birthdayMessage.secret.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
-              <span className={styles.secretSignature}>Forever yours <Heart size={13} fill="currentColor" /></span>
+              <span className={styles.secretSignature}>Forever yours <Heart size={13} fill="#ef4444" color="#ef4444" style={{ filter: 'drop-shadow(0 0 5px rgba(239, 68, 68, 0.5))' }} /></span>
               <div className={styles.secretPersonal}>
-                <p className={styles.secretPersonalMain}>काळजी घे ❤️</p>
-                <p className={styles.secretPersonalSign}>तुझी मधु तुझ्यावर खूप प्रेम करते. 🥹</p>
+                <p className={styles.secretPersonalMain}>
+                  <span className={styles.secretPersonalText}>Kalji Ghee</span>{' '}
+                  <span className={styles.redHeart} role="img" aria-label="red heart">❤️</span>
+                </p>
+                <p className={styles.secretPersonalSign}>Tuzhi madhu tula khupp prem karte 🥹</p>
               </div>
               <button type="button" className={styles.returnButton} onClick={() => setSecretOpen(false)}>Keep this close <ArrowUpRight size={15} /></button>
             </motion.section>

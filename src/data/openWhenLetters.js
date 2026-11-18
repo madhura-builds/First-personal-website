@@ -17,7 +17,7 @@ Sending you a big virtual hug! 🫂❤️`,
   },
   {
     title: 'Open when you need a reason to smile. 😂',
-    message: `Oyeee!
+    message: `Oyeee! 
 
 First of all, SMILE!
 
@@ -48,14 +48,14 @@ Not just on special days, but on ordinary days too.
 If I had to choose again, I'd still choose you. 🥹❤️`,
   },
   {
-    title: 'Open when you need a little extra attention from your wife. 🙈',
-    message: `Oyeee, my busy person! 😂
+    title: 'Open when you need a little extra attention from your wife. 💕',
+    message: `Oooo my Sweetheart! ❤️
 
 Attention chahiye?
 
-Well, tumhe yeh poochne ki zarurat nahi hai. You know this, right? My attention is already yours by default. ❤️
+Well, you don't even have to ask for it. You know that, right? My attention is already yours by default. ❤️
 
-But still, agar future mein kabhi extra attention chahiye ho, toh remember this official reward!
+But still, if you ever need a little extra attention in the future, just remember that this official reward is always available!
 
 No work talk, no distractions, no excuses!
 
@@ -63,7 +63,7 @@ Today, you get all the attention you want. 😌
 
 And just so you know, your wife also reserves the right to annoy you, tease you and ask for extra love in return.
 
-Terms and conditions: You have to love me back. Lifetime validity! 😂💋`,
+Terms and conditions: You have to love me back. Lifetime validity! 😂💕`,
   },
   {
     title: 'Open when you need to remember how special you are to me. 🥹',

@@ -111,7 +111,7 @@ export const Screen05Letter = ({ onContinue, isReducedMotion }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { delay: isReducedMotion ? 0 : 0.4 } }}
               >
-                Click the envelope or press Enter to open it
+                Click the envelope to Open it
               </motion.p>
             </motion.div>
           )}

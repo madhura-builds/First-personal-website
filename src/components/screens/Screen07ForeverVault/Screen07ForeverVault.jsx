@@ -131,10 +131,10 @@ export function Screen07ForeverVault({ isReducedMotion = false, onReturn }) {
         </div>
       </section>
 
-      <section className={styles.secretSection}>
+      {/* <section className={styles.secretSection}>
         <span className={styles.sectionLabel}><span /> CLASSIFIED // FINAL LAYER</span><h2>There&apos;s still one more secret...</h2><p>Some things are too special to be displayed without permission.</p>
         <button type="button" className={styles.secretButton} onClick={() => { setSecretCode(''); setCodeError(''); setSecretUnlocked(false); setActiveModal('code'); }}><KeyRound size={16} /> Unlock One Last Secret</button>
-      </section>
+      </section> */}
 
       <footer className={styles.footer}>
         <p className={styles.footerThought}>Some treasures aren&apos;t made of gold. Some are made of moments, promises, and love.</p>
@@ -150,8 +150,11 @@ export function Screen07ForeverVault({ isReducedMotion = false, onReturn }) {
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: isReducedMotion ? 0.05 : 0.7, ease }}
       >
-        <p className={styles.personalClosingMain}>काळजी घे ❤️</p>
-        <p className={styles.personalClosingSign}>तुझी मधु तुझ्यावर खूप प्रेम करते. 🥹</p>
+        <p className={styles.personalClosingMain}>
+          <span className={styles.personalClosingText}>Kalji Ghee</span>{' '}
+          <span className={styles.redHeart} role="img" aria-label="red heart">❤️</span>
+        </p>
+        <p className={styles.personalClosingSign}>Tuzhi madhu tula khupp prem karte 🥹</p>
       </motion.div>
 
       <AnimatePresence>
